@@ -1,0 +1,22 @@
+body{
+   margin: 0;
+   scroll-behavior: smooth;
+   padding: 0;
+   background-color: #fab0059a !important;
+}
+
+.bg-body-tertiary{
+   background-color:#223d69 !important;
+}
+
+.books_container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+.card-header{
+   background-color:#223d69 !important;
+   font-weight: 600;
+}
