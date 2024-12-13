@@ -101,25 +101,6 @@ let books = [
      "comments": []
    },
    {
-     "name": "Im Schatten des Mondes",
-     "author": "Philipp Silber",
-     "likes": 890,
-     "liked": false,
-     "price": 12.30,
-     "publishedYear": 2022,
-     "genre": "Science-Fiction",
-     "comments": [
-       {
-         "name": "BücherLiebhaber",
-         "comment": "Eine magische Reise durch eine faszinierende Fantasiewelt, absolut fesselnd."
-       },
-       {
-         "name": "Leseratte",
-         "comment": "Ein packender Science-Fiction-Roman, der mich zum Nachdenken gebracht hat."
-       }
-     ]
-   },
-   {
      "name": "Jenseits der Sterne",
      "author": "Oliver Schwarz",
      "likes": 1450,
@@ -148,28 +129,44 @@ let books = [
          "comment": "Ein faszinierendes Buch, das mich von der ersten Seite an gefesselt hat."
        }
      ]
-   },
-   {
-     "name": "Liebe in Zeiten des Krieges",
-     "author": "Emilia Rot",
-     "likes": 1800,
-     "liked": true,
-     "price": 19.99,
-     "publishedYear": 2016,
-     "genre": "Romantik",
-     "comments": [
-       {
-         "name": "Bibliophile23",
-         "comment": "Die Fantasiewelt war so lebendig, ich konnte das Buch kaum aus der Hand legen."
-       },
-       {
-         "name": "StorySeeker",
-         "comment": "Eine unglaublich berührende Liebesgeschichte, die mich tief bewegt hat."
-       },
-       {
-         "name": "SciFiExplorer",
-         "comment": "Spannende Zukunftsvisionen und interessante Charaktere machten diesen Roman einzigartig."
-       }
-     ]
    }
  ]
+
+let booksImgs = [
+  "book.png",
+  "book1.png,",
+  "book2.png",
+  "book.png",
+  "book1.png,",
+  "book2.png",
+  "book2.png"
+];
+
+ function init(){
+  render();
+ }
+
+ function render(){
+   let imgContent = document.getElementById('bookImgContent');
+   let bookTitles = document.getElementById('bookTitle');
+   let priceConent = document.getElementById('priceList');
+   for (let i = 0; i < booksImgs.length; i++) {
+    imgContent.innerHTML = `<img src="./assets/img/${booksImgs[i]}" class="card-img-top"/>`;
+     bookTitles.innerHTML = `<p>${books[i].name}</p>`;
+     priceConent.innerHTML= `<div id="priceContent" class="price_like">
+            <p>${books[i].price}  €</p>
+            <p>${books[i].likes}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+             </svg>
+            </p>
+         </div>
+         <div id="author">
+            <span>Autor : ${books[i].author}</span><br>
+            <span>Erscheinungsjahr : ${books[i].publishedYear}</span><br>
+            <span>Gerne : ${books[i].genre}</span>
+         </div>`
+}
+}
+
+console.log(books[0].name);
