@@ -153,8 +153,3 @@ let booksImgs = [
     }
   }
  
-
-//   function render(){
-//   for (let j = 0; j < books[i].comments.length; j++) {} 
-// }
-// console.log(books[2].comments[0].name);
