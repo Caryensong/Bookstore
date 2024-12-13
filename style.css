@@ -2,7 +2,7 @@ body{
    margin: 0;
    scroll-behavior: smooth;
    padding: 0;
-   background-color: #fab0059a !important;
+   background-color: #f3ecbe !important;
 }
 
 nav.navbar{
@@ -21,7 +21,7 @@ nav.navbar{
    background-color:#223d69 !important;
    font-weight: 600;
 }
-.priceLike{
+.price_like{
    display: flex;
    justify-content: space-between;
 }
