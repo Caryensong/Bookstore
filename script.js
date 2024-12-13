@@ -153,3 +153,13 @@ let booksImgs = [
     }
   }
  
+ 
+ function btnToFavorite(i){
+  let numOfLikes = books[i].likes;
+  if (books[i].liked === true){
+    numOfLikes--;
+  } else{
+    document.getElementById('bookLikes').innerHTML = numOfLikes++;
+  }
+   
+  }
