@@ -155,11 +155,18 @@ let booksImgs = [
  
  
  function btnToFavorite(i){
-  let numOfLikes = books[i].likes;
-  if (books[i].liked === true){
-    numOfLikes--;
+  let book = books[i];
+
+  if (book.liked === true){
+      book.likes--;
+      book.liked = false;
   } else{
-    document.getElementById('bookLikes').innerHTML = numOfLikes++;
+    book.likes++; 
+    book.liked = true;
   }
-   
-  }
+  
+    let likesElement = document.getElementById(`bookLikesNum${i}`);
+    let likeButton = document.getElementById(`bookLikeBtn${i}`)
+    likesElement.innerHTML = book.likes; 
+    likeButton.innerHTML = likesButtonTemplates(book.liked); 
+  } 
