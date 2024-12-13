@@ -12,8 +12,7 @@ function commentsTemplates(comments) {
  
  function likesButtonTemplates(isLiked) {
    if (isLiked) {
-      
-     return `
+      return `
        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-heart-fill cursor-pointer" viewBox="0 0 16 16">
          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
        </svg>`;
@@ -26,9 +25,9 @@ function commentsTemplates(comments) {
  }
 
 function getbooksTemplate(i) {
-   const book = books[i];
-   let commentsHTML = commentsTemplates(book.comments);
+   let book = books[i];   
    let likeBtn = likesButtonTemplates(book.liked);
+   let commentsHTML = commentsTemplates(book.comments);
 
   return `
    <div class="card" style="width: 18rem">
@@ -42,10 +41,11 @@ function getbooksTemplate(i) {
       <div id="priceListContent" class="card-body border-top ">
          <div class="price_like">
             <p class="text-danger">${books[i].price.toFixed(2)} €</p>
-            <div id="bookLikes">${books[i].likes}
-            <span onclick="btnToFavorite(${i})">${likeBtn}</span>
+            <div id="bookLikesNum${i}">${books[i].likes}
+           <span id="bookLikeBtn${i}" onclick="btnToFavorite(${i})">${likeBtn}</span>
           </div>
          </div>
+
          <div id="author" class="row">
             <div class="col-6">Autor:</div> <div class="col ">${
               books[i].author
