@@ -127,14 +127,18 @@ let books = [
        {
          "name": "Bookworm92",
          "comment": "Ein faszinierendes Buch, das mich von der ersten Seite an gefesselt hat."
-       }
+       },
+       {
+        "name": "Leser123",
+        "comment": "Ein fesselndes Abenteuer, das mich von Anfang bis Ende mitgerissen hat."
+      }
      ]
    }
  ]
 
 let booksImgs = [
-  "book.png",
-  "book1.png,",
+  "./assets/img/book.png",
+  "./assets/img/book1.png,",
   "book2.png",
   "book.png",
   "book1.png,",
@@ -143,17 +147,46 @@ let booksImgs = [
 ];
 
  function init(){
+  let booksCardsRef =document.getElementById('booksCards');
+  for (let i = 0; i < books.length; i++) {
+    booksCardsRef.innerHTML += ` <div class="card" style="width: 18rem">
+
+        <div id="bookTitle" class="card-header text-white text-center"></div>
+        <div id="bookImgContent"></div> 
+        <div id="priceList" class="card-body border-top "></div>
+
+        <div class="card-footer text-body-secondary">
+          Kommentare:
+          <div id="commentList"></div>
+          
+            <div class="input-group">
+              <textarea
+                class="form-control border-bottom"
+                aria-label="With textarea"
+                placeholder="schreiben dein Kommentar ...">
+              </textarea>
+              <button><img src="./assets/icon/send.png" /></button>
+            </div>
+        </div>
+        </div>`
+  }
   render();
  }
 
  function render(){
    let imgContent = document.getElementById('bookImgContent');
    let bookTitles = document.getElementById('bookTitle');
-   let priceConent = document.getElementById('priceList');
+   let priceRef = document.getElementById('priceList');
+   let commentsRef = document.getElementById('commentList');
+  
    for (let i = 0; i < booksImgs.length; i++) {
-    imgContent.innerHTML = `<img src="./assets/img/${booksImgs[i]}" class="card-img-top"/>`;
+    for (let j = 0; j < books[i].comments.length; j++) {
+      
+  
+    imgContent.innerHTML = `<img src="${booksImgs[i]}" class="card-img-top"/>`;
+
      bookTitles.innerHTML = `<p>${books[i].name}</p>`;
-     priceConent.innerHTML= `<div id="priceContent" class="price_like">
+     priceRef.innerHTML= `<div id="priceContent" class="price_like">
             <p>${books[i].price}  €</p>
             <p>${books[i].likes}
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
@@ -165,8 +198,11 @@ let booksImgs = [
             <span>Autor : ${books[i].author}</span><br>
             <span>Erscheinungsjahr : ${books[i].publishedYear}</span><br>
             <span>Gerne : ${books[i].genre}</span>
-         </div>`
+         </div>`;
+    commentsRef.innerHTML = ` <div id="myComments">[ Caryen ]</div>
+          <div id="existingComments">${books[i].comments[j].name}  : ${books[i].comments[j].comment} </div>`;
+  }
 }
 }
 
-console.log(books[0].name);
+console.log(books[2].comments[0].name);
