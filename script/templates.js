@@ -1,16 +1,25 @@
 function getbooksTemplate(i) {
   let commentsHTML = "";
   if (books[i].comments.length > 0) {
-    commentsHTML = books[i].comments
-      .map(
-        (comment) => `
-           <p><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>
-         `
-      )
-      .join("");
+   books[i].comments.forEach(comment => {
+      commentsHTML += `<p><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>`;
+    });
   } else {
     commentsHTML = "<p>Keine Kommentare vorhanden.</p>";
   }
+
+  let likeBtn = '';
+
+  if (books[i].liked === true) {
+    likeBtn = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+      </svg>`;
+  } else {
+    likeBtn = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart text-danger cursor-pointer" viewBox="0 0 16 16">
+        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+      </svg>`;
+  }
+  
 
   return `
    <div class="card" style="width: 18rem">
@@ -25,12 +34,8 @@ function getbooksTemplate(i) {
          <div class="price_like">
             <p class="text-danger">${books[i].price.toFixed(2)} €</p>
             <p>${books[i].likes}
-            
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart text-danger cursor-pointer" viewBox="0 0 16 16">
-              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-            </svg>
-      
-             </p>
+            ${likeBtn}
+          </p>
          </div>
          <div id="author" class="row">
             <div class="col-6">Autor:</div> <div class="col ">${
@@ -56,7 +61,7 @@ function getbooksTemplate(i) {
                   <p><strong>[ Caryen ]:</strong></p>
                </div>
 
-               <div id="existingComments">${commentsHTML} </div>
+               <div id="existingComments">${commentsHTML}</div>
             </div>
       </div>
             <div class="input-group">
@@ -65,7 +70,6 @@ function getbooksTemplate(i) {
               <img src="./assets/icon/send.png" alt="Send"/>
               </button>
             </div>
-        
       </div>
     </div>`;
 }
