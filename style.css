@@ -27,3 +27,14 @@ nav.navbar{
    display: flex;
    justify-content: space-between;
 }
+
+.comment_conent{
+  height: 150px;
+}
+
+#bookImgContent img{
+   width: 150px;
+   height: 150px;
+   position:relative;
+   left:65px;
+}

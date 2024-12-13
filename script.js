@@ -137,72 +137,24 @@ let books = [
  ]
 
 let booksImgs = [
-  "./assets/img/book.png",
-  "./assets/img/book1.png,",
+  "book.png",
+  "book1.png,",
   "book2.png",
   "book.png",
   "book1.png,",
   "book2.png",
-  "book2.png"
+  "book2.png",
 ];
 
  function init(){
   let booksCardsRef =document.getElementById('booksCards');
   for (let i = 0; i < books.length; i++) {
-    booksCardsRef.innerHTML += ` <div class="card" style="width: 18rem">
-
-        <div id="bookTitle" class="card-header text-white text-center"></div>
-        <div id="bookImgContent"></div> 
-        <div id="priceList" class="card-body border-top "></div>
-
-        <div class="card-footer text-body-secondary">
-          Kommentare:
-          <div id="commentList"></div>
-          
-            <div class="input-group">
-              <textarea
-                class="form-control border-bottom"
-                aria-label="With textarea"
-                placeholder="schreiben dein Kommentar ...">
-              </textarea>
-              <button><img src="./assets/icon/send.png" /></button>
-            </div>
-        </div>
-        </div>`
+    booksCardsRef.innerHTML += getbooksTemplate(i);
+    }
   }
-  render();
- }
+ 
 
- function render(){
-   let imgContent = document.getElementById('bookImgContent');
-   let bookTitles = document.getElementById('bookTitle');
-   let priceRef = document.getElementById('priceList');
-   let commentsRef = document.getElementById('commentList');
-  
-   for (let i = 0; i < booksImgs.length; i++) {
-    for (let j = 0; j < books[i].comments.length; j++) {
-      
-  
-    imgContent.innerHTML = `<img src="${booksImgs[i]}" class="card-img-top"/>`;
-
-     bookTitles.innerHTML = `<p>${books[i].name}</p>`;
-     priceRef.innerHTML= `<div id="priceContent" class="price_like">
-            <p>${books[i].price}  €</p>
-            <p>${books[i].likes}
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-             </svg>
-            </p>
-         </div>
-         <div id="author">
-            <span>Autor : ${books[i].author}</span><br>
-            <span>Erscheinungsjahr : ${books[i].publishedYear}</span><br>
-            <span>Gerne : ${books[i].genre}</span>
-         </div>`;
-    commentsRef.innerHTML = ` <div id="myComments">[ Caryen ]</div>
-          <div id="existingComments">${books[i].comments[j].name}  : ${books[i].comments[j].comment} </div>`;
-  }
-}
-}
-
-console.log(books[2].comments[0].name);
+//   function render(){
+//   for (let j = 0; j < books[i].comments.length; j++) {} 
+// }
+// console.log(books[2].comments[0].name);
