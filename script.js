@@ -138,10 +138,10 @@ let books = [
 
 let booksImgs = [
   "book.png",
-  "book1.png,",
+  "book1.png",
   "book2.png",
   "book.png",
-  "book1.png,",
+  "book1.png",
   "book2.png",
   "book2.png",
 ];

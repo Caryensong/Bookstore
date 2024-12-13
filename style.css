@@ -15,8 +15,9 @@ nav.navbar{
    justify-content: center;
    align-items: center;
    height: 100vh;
-   gap: 15px;
+   gap: 20px;
    flex-wrap: wrap;
+   margin-top: 80px;
 }
 
 .card-header{
@@ -38,3 +39,22 @@ nav.navbar{
    position:relative;
    left:65px;
 }
+
+#priceListContent{
+   height: 180px;
+}
+
+ ::placeholder {
+   color: #1872c0; /* Bootstrap Standard für Platzhalter */
+ }
+ 
+ textarea{
+   height: 30px;
+ }
+ 
+ .cursor-pointer{
+   cursor: pointer;
+ }
+ svg{
+   color: red;
+ }
