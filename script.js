@@ -171,6 +171,8 @@ function init() {
 
 function btnToFavorite(i) {
   let book = books[i];
+  let likesElement = document.getElementById(`bookLikesNum${i}`);  
+  let likeBtnElement = document.getElementById(`bookLikeBtn${i}`);
 
   if (book.liked === true) {
     book.likes--;
@@ -178,13 +180,11 @@ function btnToFavorite(i) {
   } else {
     book.likes++;
     book.liked = true;
-  }
+  }  
 
-  let likesElement = document.getElementById(`bookLikesNum${i}`);
   likesElement.innerHTML = book.likes;
-
-  let likeButton = document.getElementById(`bookLikeBtn${i}`);
-  likeButton.innerHTML = likesButtonTemplates(book.liked);
+  
+  likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
 }
 
 function addComment(i) {
