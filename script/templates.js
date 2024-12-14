@@ -6,7 +6,7 @@ function commentsTemplates(comments) {
    let commentsHTML = "";
    for (let j = 0; j < comments.length; j++){
     let comment = comments[j];
-     commentsHTML += `<p><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>`;
+     commentsHTML += `<p class="fst-italic"><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>`;
    }
    return commentsHTML;
  }
@@ -48,26 +48,26 @@ function getbooksTemplate(i) {
          </div>
 
          <div id="author" class="row">
-            <div class="col-6">Autor:</div> <div class="col ">${
+            <div class="col-6 ">Autor:</div> <div class="col fw-bold fst-italic text-secondary">${
               books[i].author
             }</div>
          </div>
          <div class="row">
-            <div class="col-6 pe-0">Erscheinungsjahr:</div> <div class="col-4">${
+            <div class="col-6 pe-0">Erscheinungsjahr:</div> <div class="col-4 fw-bold text-secondary" >${
               books[i].publishedYear
             }</div>
          </div>
          <div class="row">
-            <div class="col-6">Genre:</div><div class="col">${
+            <div class="col-6">Genre:</div><div class="col fw-bold text-secondary">${
               books[i].genre
             }</div>
          </div>
       </div>
     
-      <div class="card-footer text-body-secondary overflow-auto comment_conent">
+      <div class="card-footer text-light overflow-auto comment_conent">
          <p><strong>Kommentare:</strong></p>
             <div id="commentList">
-               <div id="existingComments${i}">${commentsHTML}</div>
+               <div id="existingComments${i} ">${commentsHTML}</div>
             </div>
       </div>
             <div class="input-group">

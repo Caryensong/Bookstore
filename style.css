@@ -1,60 +1,70 @@
-body{
-   margin: 0;
-   scroll-behavior: smooth;
-   padding: 0;
-   background-color: #223d699c !important;
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+  padding: 0;
+  background-image: url(./assets/img/bg2.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 
-nav.navbar{
-   background-color:#223d69!important;
-   color: #ffff;
+nav.navbar {
+  background-color: #808c52 !important;
 }
 
-.books_container{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   gap: 20px;
-   flex-wrap: wrap;
-   margin-top: 80px;
+.books_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+.card {
+  background-color: #d9d9d9 !important;
+}
+.card-header {
+  background-color: #808c52 !important;
+  font-weight: 600;
+}
+.price_like {
+  display: flex;
+  justify-content: space-between;
+}
+#priceListContent {
+  background-color: #ffffff80;
 }
 
-.card-header{
-   background-color:#223d69 !important;
-   font-weight: 600;
-}
-.price_like{
-   display: flex;
-   justify-content: space-between;
-}
-
-.comment_conent{
+.comment_conent {
   height: 150px;
+  scrollbar-color: #b3a895 rgba(115, 182, 113, 0.096);
+  scrollbar-width: thin;
+  background-color: #4a4a4aa1 !important;
 }
 
-#bookImgContent img{
-   width: 150px;
-   height: 150px;
-   position:relative;
-   left:65px;
+#bookImgContent img {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  left: 65px;
 }
 
-#priceListContent{
-   height: 180px;
+#priceListContent {
+  height: 180px;
 }
 
- ::placeholder {
-   color: #1872c0; /* Bootstrap Standard für Platzhalter */
- }
- 
- textarea{
-   height: 30px;
- }
- 
- .cursor-pointer{
-   cursor: pointer;
- }
- svg{
-   color: red;
- }
+::placeholder {
+  color: #1872c0; /* Bootstrap Standard für Platzhalter */
+}
+
+textarea {
+  height: 30px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+textarea {
+  background-color: #7b835534 !important;
+}
