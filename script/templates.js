@@ -4,7 +4,8 @@ function commentsTemplates(comments) {
    }
  
    let commentsHTML = "";
-   for (const comment of comments) {
+   for (let j = 0; j < comments.length; j++){
+    let comment = comments[j];
      commentsHTML += `<p><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>`;
    }
    return commentsHTML;
@@ -66,11 +67,11 @@ function getbooksTemplate(i) {
       <div class="card-footer text-body-secondary overflow-auto comment_conent">
          <p><strong>Kommentare:</strong></p>
             <div id="commentList">
-               <div id="existingComments">${commentsHTML}</div>
+               <div id="existingComments${i}">${commentsHTML}</div>
             </div>
       </div>
             <div class="input-group">
-              <textarea id="textInput" class="form-control border-bottom" aria-label="With textarea" placeholder="Schreiben dein Kommentar..."></textarea>
+              <textarea id="textInput${i}" class="form-control border-bottom" aria-label="With textarea" placeholder="Schreiben dein Kommentar..."></textarea>
               <button class="btn ps-2 pe-2 p-0 cursor-pointer" onclick="addComment(${i})">
               <img src="./assets/icon/send.png" alt="Send"/>
               </button>
