@@ -42,7 +42,7 @@ function getbooksTemplate(i) {
       <div id="priceListContent" class="card-body border-top ">
          <div class="price_like">
             <p class="text-danger">${books[i].price.toFixed(2)} €</p>
-            <div id="bookLikesNum${i}">${books[i].likes}
+            <div id="bookLikesNum${i}" class="d-flex gap-1">${books[i].likes}
            <div id="bookLikeBtn${i}" onclick="btnToFavorite(${i})">${likeBtn}</div>
           </div>
          </div>
@@ -67,7 +67,7 @@ function getbooksTemplate(i) {
       <div class="card-footer text-light overflow-auto comment_conent">
          <p><strong>Kommentare:</strong></p>
             <div id="commentList">
-               <div id="existingComments${i} ">${commentsHTML}</div>
+               <div id="existingComments${i}">${commentsHTML}</div>
             </div>
       </div>
             <div class="input-group">
