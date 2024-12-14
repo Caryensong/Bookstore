@@ -42,7 +42,7 @@ function getbooksTemplate(i) {
          <div class="price_like">
             <p class="text-danger">${books[i].price.toFixed(2)} €</p>
             <div id="bookLikesNum${i}">${books[i].likes}
-           <span id="bookLikeBtn${i}" onclick="btnToFavorite(${i})">${likeBtn}</span>
+           <div id="bookLikeBtn${i}" onclick="btnToFavorite(${i})">${likeBtn}</div>
           </div>
          </div>
 
@@ -66,16 +66,12 @@ function getbooksTemplate(i) {
       <div class="card-footer text-body-secondary overflow-auto comment_conent">
          <p><strong>Kommentare:</strong></p>
             <div id="commentList">
-               <div id="myComments">
-                  <p><strong>[ Caryen ]:</strong></p>
-               </div>
-
                <div id="existingComments">${commentsHTML}</div>
             </div>
       </div>
             <div class="input-group">
-              <textarea class="form-control border-bottom" aria-label="With textarea" placeholder="Schreiben dein Kommentar..."></textarea>
-              <button class="btn  ps-2 pe-2 p-0" onclick="addComment(${i})">
+              <textarea id="textInput" class="form-control border-bottom" aria-label="With textarea" placeholder="Schreiben dein Kommentar..."></textarea>
+              <button class="btn ps-2 pe-2 p-0 cursor-pointer" onclick="addComment(${i})">
               <img src="./assets/icon/send.png" alt="Send"/>
               </button>
             </div>

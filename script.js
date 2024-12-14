@@ -148,6 +148,7 @@ let booksImgs = [
 
  function init(){
   let booksCardsRef =document.getElementById('booksCards');
+  booksCardsRef="";
   for (let i = 0; i < books.length; i++) {
     booksCardsRef.innerHTML += getbooksTemplate(i);
     }
@@ -166,7 +167,31 @@ let booksImgs = [
   }
   
     let likesElement = document.getElementById(`bookLikesNum${i}`);
-    let likeButton = document.getElementById(`bookLikeBtn${i}`)
-    likesElement.innerHTML = book.likes; 
-    likeButton.innerHTML = likesButtonTemplates(book.liked); 
-  } 
+    likesElement.innerHTML = book.likes;
+
+    let likeButton = document.getElementById(`bookLikeBtn${i}`);
+    likeButton.innerHTML = likesButtonTemplates(book.liked);
+}
+
+function addComment(i){
+  let myCommentInputRef = document.getElementById('textInput');
+  let myCommentInput = myCommentInputRef.value;
+  
+  books[i].comments.unshift({
+    name: "[ Caryen ]",
+    comment: myCommentInput
+  });
+   myCommentInputRef.value="";
+  updateCommentsDisplay(); 
+}
+
+function updateCommentsDisplay(i) {
+  let commentsHTML = ""; 
+  for (let j = 0; j < books[i].comments.length; j++) {
+    let comment = books[i].comments[j];
+    commentsHTML += `
+      <p><strong>[ ${comment.name} ]:</strong> <br>${comment.comment}</p>
+    `;
+  }
+  document.getElementById('existingComments').innerHTML = commentsHTML;
+}
