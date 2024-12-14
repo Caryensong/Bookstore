@@ -3,7 +3,7 @@ body {
   scroll-behavior: smooth;
   padding: 0;
   background-image: url(./assets/img/bg2.jpg);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -22,6 +22,7 @@ nav.navbar {
 }
 .card {
   background-color: #d9d9d9 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 .card-header {
   background-color: #808c52 !important;
@@ -39,7 +40,7 @@ nav.navbar {
   height: 150px;
   scrollbar-color: #b3a895 rgba(115, 182, 113, 0.096);
   scrollbar-width: thin;
-  background-color: #4a4a4aa1 !important;
+  background-color: #1a1919a2 !important;
 }
 
 #bookImgContent img {
@@ -66,5 +67,5 @@ textarea {
 }
 
 textarea {
-  background-color: #7b835534 !important;
+  background-color: #4a4a4a1c !important;
 }
