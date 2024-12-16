@@ -176,17 +176,16 @@ function render(){
 }
 
 function saveToLocalStorage(i){
-  let commentsForBook = books[i].comments;
-  localStorage.setItem('newComment', JSON.stringify(commentsForBook));
+  let comments = books[i].comments;
+  localStorage.setItem('comments', JSON.stringify(comments));
  }
 
-function getFromLocalStorage(){
+function getFromLocalStorage(i){
   const storedComments = JSON.parse(localStorage.getItem("comments"));
-  
-  if (storedComments){
-    newComments = storedComments;
-  }
-}
+      if (storedComments) {
+        books.comments = storedComments;
+      }
+    }
 
 function btnToFavorite(i) {
   let book = books[i];
@@ -202,7 +201,6 @@ function btnToFavorite(i) {
   }  
 
   likesElement.innerHTML = book.likes;
-  
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
 }
 
@@ -215,15 +213,14 @@ function addComment(i) {
     comment: myCommentInput,
   });
 
-  saveToLocalStorage(i);
   updateCommentsDisplay(i);
   
   myCommentInputRef.value = "";
- 
 }
 
 function updateCommentsDisplay(i) {
   const commentsHTML = commentsTemplates(books[i].comments);
   document.getElementById(`existingComments${i}`).innerHTML = commentsHTML;
-}
 
+  saveToLocalStorage(i);
+}
