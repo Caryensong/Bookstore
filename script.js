@@ -178,6 +178,8 @@ function render(){
 
 function saveToLocalStorage(){
   localStorage.setItem('updateBookStore', JSON.stringify(books)); //Alle bücher werden gespeichert
+
+  localStorage.setItem('updateFavoriteStore',JSON.stringify(favoritesBooks));
  }
 
 function getFromLocalStorage(){
