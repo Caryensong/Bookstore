@@ -162,9 +162,10 @@ let booksImgs = [
   "book_königreich.png",
 ];
 
-function init() {
+function init() { 
   getFromLocalStorage();
-  render();
+  render(); 
+ 
 }
 
 function render(){
@@ -175,15 +176,15 @@ function render(){
   }
 }
 
-function saveToLocalStorage(i){
-  let comments = books[i].comments;
-  localStorage.setItem('comments', JSON.stringify(comments));
+function saveToLocalStorage(){
+  localStorage.setItem('updateBookStore', JSON.stringify(books)); //Alle bücher werden gespeichert
  }
 
-function getFromLocalStorage(i){
-  const storedComments = JSON.parse(localStorage.getItem("comments"));
-      if (storedComments) {
-        books.comments = storedComments;
+function getFromLocalStorage(){
+  const storedBooks = JSON.parse(localStorage.getItem('updateBookStore'));
+      if (storedBooks) {
+        console.log('Neues Update Buch:', storedBooks);
+        books = storedBooks;
       }
     }
 
@@ -194,7 +195,7 @@ function btnToFavorite(i) {
 
   if (book.liked === true) {
     book.likes--;
-    book.liked = false;
+    book.liked= false;
   } else {
     book.likes++;
     book.liked = true;
@@ -202,6 +203,7 @@ function btnToFavorite(i) {
 
   likesElement.innerHTML = book.likes;
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
+  saveToLocalStorage(i);
 }
 
 function addComment(i) {
@@ -222,5 +224,6 @@ function updateCommentsDisplay(i) {
   const commentsHTML = commentsTemplates(books[i].comments);
   document.getElementById(`existingComments${i}`).innerHTML = commentsHTML;
 
-  saveToLocalStorage(i);
+  saveToLocalStorage();
+  getFromLocalStorage()
 }
