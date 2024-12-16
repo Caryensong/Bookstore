@@ -47,6 +47,7 @@ nav.navbar {
   width: 100%;
   height: 150px;
   object-fit: cover;
+
 }
 
 #priceListContent {
@@ -67,4 +68,9 @@ textarea {
 
 textarea {
   background-color: #4a4a4a1c !important;
+}
+
+.headline{
+  padding-top: 50px;
+  padding-bottom: 0;
 }
