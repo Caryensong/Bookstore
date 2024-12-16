@@ -149,17 +149,17 @@ let books = [
       },
     ],
   },
-  
+
 ];
 
 let booksImgs = [
-  "book.png",
-  "book1.png",
+  "book_ozean.jpg",
+  "book_pfad.png",
+  "book_himmel.png",
+  "book_time.png",
   "book2.png",
-  "book.png",
-  "book1.png",
-  "book2.png",
-  "book2.png",
+  "book_star.png",
+  "book_königreich.png",
 ];
 
 function init() {

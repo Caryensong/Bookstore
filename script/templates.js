@@ -32,19 +32,20 @@ function getbooksTemplate(i) {
 
   return `
    <div class="card" style="width: 18rem">
-      <div id="bookTitleContent" class="card-header text-white text-center">
+      <div id="bookTitleContent" class="card-header text-white text-center ">
         <p>${books[i].name}</p>
       </div>
         <div id="bookImgContent">
-            <img src="./assets/img/${booksImgs[i]}" class="card-img-top"/>
+            <img src="./assets/img/${booksImgs[i]}" class="card-img-top rounded-0"/>
         </div> 
 
       <div id="priceListContent" class="card-body border-top ">
          <div class="price_like">
             <p class="text-danger">${books[i].price.toFixed(2)} €</p>
-            <div id="bookLikesNum${i}" class="d-flex gap-1">${books[i].likes}
+             <div class="d-flex gap-1">
+            <div id="bookLikesNum${i}">${books[i].likes}</div> 
             <div id="bookLikeBtn${i}">${likeBtn}</div>
-            </div>  
+             </div>
          </div>
 
          <div id="author" class="row">
