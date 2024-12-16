@@ -163,10 +163,28 @@ let booksImgs = [
 ];
 
 function init() {
+  getFromLocalStorage();
+  render();
+}
+
+function render(){
   let booksCardsRef = document.getElementById("booksCards");
 
   for (let i = 0; i < books.length; i++) {
     booksCardsRef.innerHTML += getbooksTemplate(i);
+  }
+}
+
+function saveToLocalStorage(i){
+  let commentsForBook = books[i].comments;
+  localStorage.setItem('newComment', JSON.stringify(commentsForBook));
+ }
+
+function getFromLocalStorage(){
+  const storedComments = JSON.parse(localStorage.getItem("comments"));
+  
+  if (storedComments){
+    newComments = storedComments;
   }
 }
 
@@ -190,17 +208,22 @@ function btnToFavorite(i) {
 
 function addComment(i) {
   let myCommentInputRef = document.getElementById(`textInput${i}`);
-  let myCommentInput = myCommentInputRef.value;
-
-  books[i].comments.unshift({
+  let myCommentInput = myCommentInputRef.value
+  let newComments = books[i].comments;
+  newComments.unshift({
     name: "Caryen",
     comment: myCommentInput,
   });
-  myCommentInputRef.value = "";
+
+  saveToLocalStorage(i);
   updateCommentsDisplay(i);
+  
+  myCommentInputRef.value = "";
+ 
 }
 
 function updateCommentsDisplay(i) {
   const commentsHTML = commentsTemplates(books[i].comments);
   document.getElementById(`existingComments${i}`).innerHTML = commentsHTML;
 }
+
