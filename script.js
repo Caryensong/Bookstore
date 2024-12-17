@@ -6,13 +6,14 @@ let currentPage = "home";
 
 function render(){
   let booksCardsRef = document.getElementById("booksCards");
-  booksCardsRef.innerHTML = ""; 
-
-  // let booksToRender = currentPage === "favorites" ? favoritesBooks : books;
+  booksCardsRef.innerHTML = "";
 
   for (let i = 0; i < books.length; i++) {
-    booksCardsRef.innerHTML += getbooksTemplate(i);
+    booksCardsRef.innerHTML += getbooksTemplate(i); 
+
+  saveToLocalStorage(i);
   }
+
 }
 
 function saveToLocalStorage(){

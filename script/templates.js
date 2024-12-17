@@ -29,14 +29,18 @@ function getbooksTemplate(i) {
   let book = books[i];
   let likeBtn = likesButtonTemplates(i, book.liked);
   let commentsHTML = commentsTemplates(book.comments);
+  
+  return getCardTemplate(i, book, likeBtn, commentsHTML);
+}
 
+function getCardTemplate(i, book, likeBtn, commentsHTML){ 
   return `
    <div class="card" style="width: 18rem">
       <div id="bookTitleContent" class="card-header text-white text-center ">
         <p>${book.name}</p>
       </div>
         <div id="bookImgContent">
-            <img src="./assets/img/${booksImgs[i]}" class="card-img-top rounded-0"/>
+            <img src="./assets/img/${book.img}" class="card-img-top rounded-0"/>
         </div> 
 
       <div id="priceListContent" class="card-body border-top ">
