@@ -2,9 +2,13 @@ function init() {
   getFromLocalStorage();
   render(); 
 }
+let currentPage = "home"; 
 
 function render(){
   let booksCardsRef = document.getElementById("booksCards");
+  booksCardsRef.innerHTML = ""; 
+
+  // let booksToRender = currentPage === "favorites" ? favoritesBooks : books;
 
   for (let i = 0; i < books.length; i++) {
     booksCardsRef.innerHTML += getbooksTemplate(i);
@@ -14,7 +18,7 @@ function render(){
 function saveToLocalStorage(){
   localStorage.setItem('updateBookStore', JSON.stringify(books));
 
- localStorage.setItem('updateFavoriteStore',JSON.stringify(favoritesBooksNumber));
+//  localStorage.setItem('updateFavoriteStore',JSON.stringify(favoritesBooksNumber));
  }
 
 function getFromLocalStorage(){
