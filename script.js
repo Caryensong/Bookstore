@@ -2,7 +2,6 @@ function init() {
   getFromLocalStorage();
   render(); 
 }
-let currentPage = "home"; 
 
 function render(){
   let booksCardsRef = document.getElementById("booksCards");
@@ -10,22 +9,24 @@ function render(){
 
   for (let i = 0; i < books.length; i++) {
     booksCardsRef.innerHTML += getbooksTemplate(i); 
-
-  saveToLocalStorage(i);
   }
-
+  saveToLocalStorage();
 }
 
 function saveToLocalStorage(){
-  localStorage.setItem('updateBookStore', JSON.stringify(books));
-
-//  localStorage.setItem('updateFavoriteStore',JSON.stringify(favoritesBooksNumber));
+  localStorage.setItem('BookStore', JSON.stringify(books));
+  localStorage.setItem('favoritesBooks', JSON.stringify(favoritesBooks));
  }
 
 function getFromLocalStorage(){
-  const storedBooks = JSON.parse(localStorage.getItem('updateBookStore'));
+  const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
       if (storedBooks) {
         books = storedBooks;
+      }
+
+  const storedFavoriteBooks = JSON.parse(localStorage.getItem('favoritesBooks'));
+      if (storedFavoriteBooks){
+        favoritesBooks = storedFavoriteBooks;
       }
     }
 
@@ -37,14 +38,28 @@ function btnToFavorite(i) {
   if (book.liked === true) {
     book.likes--;
     book.liked= false;
+    removeFromFavorites(i);
   } else {
     book.likes++;
     book.liked = true;
+    addBookToFavorite(i);
   }  
 
   likesElement.innerHTML = book.likes;
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
-  saveToLocalStorage(i);
+  saveToLocalStorage();
+}
+
+function addBookToFavorite(i){
+  favoritesBooks.push(books[i]);
+}
+
+function removeFromFavorites(i) {
+  for (let index = 0; index < favoritesBooks.length; index++) {
+      if (favoritesBooks[index].name == books[i].name){
+          favoritesBooks.splice(index, 1);
+      }
+  }
 }
 
 function addComment(i) {
@@ -66,5 +81,4 @@ function updateCommentsDisplay(i) {
   document.getElementById(`existingComments${i}`).innerHTML = commentsHTML;
 
   saveToLocalStorage();
-  getFromLocalStorage()
 }
