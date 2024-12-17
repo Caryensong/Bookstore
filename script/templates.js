@@ -33,7 +33,7 @@ function getbooksTemplate(i) {
   return `
    <div class="card" style="width: 18rem">
       <div id="bookTitleContent" class="card-header text-white text-center ">
-        <p>${books[i].name}</p>
+        <p>${book.name}</p>
       </div>
         <div id="bookImgContent">
             <img src="./assets/img/${booksImgs[i]}" class="card-img-top rounded-0"/>
@@ -41,26 +41,26 @@ function getbooksTemplate(i) {
 
       <div id="priceListContent" class="card-body border-top ">
          <div class="price_like">
-            <p class="text-danger">${books[i].price.toFixed(2)} €</p>
+            <p class="text-danger">${book.price.toFixed(2)} €</p>
              <div class="d-flex gap-1">
-            <div id="bookLikesNum${i}">${books[i].likes}</div> 
+            <div id="bookLikesNum${i}">${book.likes}</div> 
             <div id="bookLikeBtn${i}">${likeBtn}</div>
              </div>
          </div>
 
          <div id="author" class="row">
             <div class="col-6 ">Autor:</div> <div class="col fw-bold fst-italic text-secondary">${
-              books[i].author
+              book.author
             }</div>
          </div>
          <div class="row">
             <div class="col-6 pe-0">Erscheinungsjahr:</div> <div class="col-4 fw-bold text-secondary" >${
-              books[i].publishedYear
+              book.publishedYear
             }</div>
          </div>
          <div class="row">
             <div class="col-6">Genre:</div><div class="col fw-bold text-secondary">${
-              books[i].genre
+              book.genre
             }</div>
          </div>
       </div>
