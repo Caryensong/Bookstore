@@ -67,7 +67,7 @@ function getCardTemplate(i, book, likeBtn, commentsHTML) {
             }</div>
          </div>
          <div class="row">
-            <div class="col-6 pe-0">Erscheinungsjahr:</div> <div class="col-4 fw-bold text-secondary" >${
+            <div class="col-6 pe-0">Jahr:</div> <div class="col-4 fw-bold text-secondary" >${
               book.publishedYear
             }</div>
          </div>
@@ -119,7 +119,7 @@ function getCardFavoritesTemplate(i, book, likeBtn, commentsHTML) {
             }</div>
          </div>
          <div class="row">
-            <div class="col-6 pe-0">Erscheinungsjahr:</div> <div class="col-4 fw-bold text-secondary" >${
+            <div class="col-6 pe-0">Jahr:</div> <div class="col-4 fw-bold text-secondary" >${
               book.publishedYear
             }</div>
          </div>
