@@ -1,42 +1,41 @@
-function init() { 
+function init() {
   getFromLocalStorage();
-  render(); 
+  render();
 }
 
-function render(){
+function render() {
   let booksCardsRef = document.getElementById("booksCards");
   booksCardsRef.innerHTML = "";
 
   for (let i = 0; i < books.length; i++) {
-    booksCardsRef.innerHTML += getbooksTemplate(i); 
+    booksCardsRef.innerHTML += getbooksTemplate(i);
   }
   saveToLocalStorage();
 }
 
-function saveToLocalStorage(){
-  localStorage.setItem('BookStore', JSON.stringify(books));
- }
+function saveToLocalStorage() {
+  localStorage.setItem("BookStore", JSON.stringify(books));
+}
 
-function getFromLocalStorage(){
-  const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
-      if (storedBooks) {
-        books = storedBooks;
-      }
+function getFromLocalStorage() {
+  const storedBooks = JSON.parse(localStorage.getItem("BookStore"));
+  if (storedBooks) {
+    books = storedBooks;
+  }
 }
 
 function btnToFavorite(i) {
   let book = books[i];
-  let likesElement = document.getElementById(`bookLikesNum${i}`);  
+  let likesElement = document.getElementById(`bookLikesNum${i}`);
   let likeBtnElement = document.getElementById(`bookLikeBtn${i}`);
 
   if (book.liked === true) {
     book.likes--;
     book.liked = false;
- 
   } else {
     book.likes++;
     book.liked = true;
-  }  
+  }
 
   likesElement.innerHTML = book.likes;
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
@@ -46,7 +45,7 @@ function btnToFavorite(i) {
 
 function addComment(i) {
   let myCommentInputRef = document.getElementById(`textInput${i}`);
-  let myCommentInput = myCommentInputRef.value
+  let myCommentInput = myCommentInputRef.value;
   let newComments = books[i].comments;
   newComments.unshift({
     name: "Caryen",
@@ -54,7 +53,7 @@ function addComment(i) {
   });
 
   updateCommentsDisplay(i);
-  
+
   myCommentInputRef.value = "";
 }
 
