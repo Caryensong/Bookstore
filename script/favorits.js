@@ -18,8 +18,9 @@ function renderFavoritsCard(){
   let likeBtn = likesButtonFavoritsTemplates(i, book.liked);
   let commentsHTML = commentsTemplates(book.comments);
 
-  return getCardTemplate(i, book, likeBtn, commentsHTML);
+  return getCardFavoritesTemplate(i, book, likeBtn, commentsHTML);
 }
+
 
 function removeFromFavoritesPage(i){
   const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
@@ -33,6 +34,37 @@ function removeFromFavoritesPage(i){
         
       }
   }
+  localStorage.setItem('BookStore', JSON.stringify(storedBooks));
+  renderFavoritsCard();
+}
+
+function addNewCommitinFavePage(i){
+  const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
+  let myCommentInputRef = document.getElementById(`textInput${i}`);
+  let myCommentInput = myCommentInputRef.value
+  let newComments = favoritesBooks[i].comments;
+
+  for (let index = 0; index < storedBooks.length; index++) {
+    if (storedBooks[index].name === favoritesBooks[i].name) {
+        const newComment = {
+        name: "Caryen",
+        comment: myCommentInput,
+  };
+  newComments.unshift(newComment);
+  storedBooks[index].comments.unshift(newComment); // In storedBooks
+  break;
+      }
+  }
+ 
+  updateFavCommentsDisplay(i, storedBooks);
+  
+  myCommentInputRef.value = "";
+}
+
+function updateFavCommentsDisplay(i, storedBooks) {
+  const commentsHTML = commentsTemplates(favoritesBooks[i].comments);
+  document.getElementById(`existingComments${i}`).innerHTML = commentsHTML;
+
   localStorage.setItem('BookStore', JSON.stringify(storedBooks));
   renderFavoritsCard();
 }
