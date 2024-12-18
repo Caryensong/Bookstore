@@ -1,7 +1,7 @@
 let favoritesBooks =[];
 
 function renderFavoritsCard(){
-  const storedBooks = JSON.parse(localStorage.getItem('favoritesBooks'));
+  const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
   if (storedBooks) { 
     favoritesBooks = storedBooks.filter(book => book.liked === true);  
      let booksCardsRef = document.getElementById("booksCards");
@@ -21,17 +21,18 @@ function renderFavoritsCard(){
   return getCardTemplate(i, book, likeBtn, commentsHTML);
 }
 
-
 function removeFromFavoritesPage(i){
-  let removedBook = favoritesBooks.splice(i, 1)[0];
+  const storedBooks = JSON.parse(localStorage.getItem('BookStore'));
+  let removedBook = favoritesBooks[i];
 
-  for (let index = 0; index < books.length; index++) {
-    if (books[index].name === removedBook.name) {
-          books[index].liked = false;
-          books[index].likes--;
+  for (let index = 0; index < storedBooks.length; index++) {
+    if (storedBooks[index].name === removedBook.name) {
+        storedBooks[index].liked = false;
+        storedBooks[index].likes - 1;
+          break;
         
       }
   }
-  saveToLocalStorage();
+  localStorage.setItem('BookStore', JSON.stringify(storedBooks));
   renderFavoritsCard();
 }

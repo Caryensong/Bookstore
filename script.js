@@ -15,7 +15,6 @@ function render(){
 
 function saveToLocalStorage(){
   localStorage.setItem('BookStore', JSON.stringify(books));
-  localStorage.setItem('favoritesBooks', JSON.stringify(favoritesBooks));
  }
 
 function getFromLocalStorage(){
@@ -23,12 +22,7 @@ function getFromLocalStorage(){
       if (storedBooks) {
         books = storedBooks;
       }
-
-  const storedFavoriteBooks = JSON.parse(localStorage.getItem('favoritesBooks'));
-      if (storedFavoriteBooks){
-        favoritesBooks = storedFavoriteBooks;
-      }
-    }
+}
 
 function btnToFavorite(i) {
   let book = books[i];
@@ -37,30 +31,17 @@ function btnToFavorite(i) {
 
   if (book.liked === true) {
     book.likes--;
-    book.liked= false;
-    removeFromFavorites(i);
+    book.liked = false;
+ 
   } else {
     book.likes++;
     book.liked = true;
-    addBookToFavorite(i);
- 
   }  
 
   likesElement.innerHTML = book.likes;
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
-  saveToLocalStorage(i);
-}
 
-function addBookToFavorite(i){
-  favoritesBooks.push(books[i]);
-}
-
-function removeFromFavorites(i) {
-  for (let index = 0; index < favoritesBooks.length; index++) {
-      if (favoritesBooks[index].name == books[i].name){
-          favoritesBooks.splice(index, 1);
-      }
-  }
+  saveToLocalStorage();
 }
 
 function addComment(i) {
