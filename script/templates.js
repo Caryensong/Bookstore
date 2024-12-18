@@ -38,11 +38,11 @@ function getbooksTemplate(i) {
   let book = books[i];
   let likeBtn = likesButtonTemplates(i, book.liked);
   let commentsHTML = commentsTemplates(book.comments);
-  
+
   return getCardTemplate(i, book, likeBtn, commentsHTML);
 }
 
-function getCardTemplate(i, book, likeBtn, commentsHTML){ 
+function getCardTemplate(i, book, likeBtn, commentsHTML) {
   return `
    <div class="card" style="width: 18rem">
       <div id="bookTitleContent" class="card-header text-white text-center ">
@@ -94,7 +94,7 @@ function getCardTemplate(i, book, likeBtn, commentsHTML){
     </div>`;
 }
 
-function getCardFavoritesTemplate(i, book, likeBtn, commentsHTML){ 
+function getCardFavoritesTemplate(i, book, likeBtn, commentsHTML) {
   return `
    <div class="card" style="width: 18rem">
       <div id="bookTitleContent" class="card-header text-white text-center ">
