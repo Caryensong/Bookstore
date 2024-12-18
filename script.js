@@ -43,11 +43,12 @@ function btnToFavorite(i) {
     book.likes++;
     book.liked = true;
     addBookToFavorite(i);
+ 
   }  
 
   likesElement.innerHTML = book.likes;
   likeBtnElement.innerHTML = likesButtonTemplates(i, book.liked);
-  saveToLocalStorage();
+  saveToLocalStorage(i);
 }
 
 function addBookToFavorite(i){
