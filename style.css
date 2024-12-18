@@ -19,6 +19,7 @@ nav.navbar {
   gap: 30px;
   flex-wrap: wrap;
   margin-top: 80px;
+  margin-bottom: 80px;
 }
 .card {
   background-color: #d9d9d9 !important;
@@ -34,6 +35,7 @@ nav.navbar {
 }
 #priceListContent {
   background-color: #ffffff80;
+  height: 180px !important;
 }
 
 .comment_conent {
@@ -71,6 +73,6 @@ textarea {
 }
 
 .headline{
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 0;
 }
